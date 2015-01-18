@@ -1,0 +1,31 @@
+
+
+- support of isatty detection to avoid coloring output in these cases
+- windows support ?
+  - look at colorama
+- support of 256 color
+- support of environment variable to remove all colors. Or to force color.
+- support of with
+     with ansi(sys.stdout, ):
+         print ""
+
+Ideas
+=====
+
+We could parse and retranslate the string
+# >>> aformat('{bold}this is {red}red{/red}{/bold}')
+
+Make the attributes callable and joinable with |, and support ~:
+>>> important = (fg.red | ~attr.bold)
+>>> aformat("Hello " + important("you"))
+>>> aformat("Hello ", fg.blue | bg.white | ~attr.blink)
+
+
+Issues
+======
+
+- Is there a simple way to solve this bug:
+    aformat(aformat("foo %s bar", bg="yellow"), fg="red") % aformat("zob", fg="blue", attrs=["faint"]))
+  -> "bar" should be fg=red, but it won't... because at "%" time, fg=default.
+
+
