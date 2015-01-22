@@ -198,6 +198,8 @@ def get_new_state(current, defs):
     """
     new_state = current.copy()
     if defs.get('attrs', []):
+        if "attrs"in new_state:
+            new_state["attrs"] = new_state.get("attrs", [])[:]
         for a in defs["attrs"]:
             ia = invert_attr_label(a, ATTR)
             if ia in new_state["attrs"]:

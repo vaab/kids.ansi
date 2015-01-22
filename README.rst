@@ -47,8 +47,11 @@ ready for print with the ansi character inside::
     >>> aformat("You", fg="red")
     aformat('\x1b[31mYou\x1b[39m')
 
+    >>> aformat("You", attrs=["bold", ])
+    aformat('\x1b[1mYou\x1b[21m')
+
     >>> aformat("Hello You, how are you?", fg="black", bg="blue", attrs=["bold", ])
-    aformat('\x1b[30m\x1b[44mHello You, how are you?\x1b[39m\x1b[49m')
+    aformat('\x1b[30m\x1b[44m\x1b[1mHello You, how are you?\x1b[39m\x1b[49m\x1b[21m')
 
 Notice that ``aformat`` is somewhat clever ::
 
