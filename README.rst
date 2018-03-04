@@ -2,7 +2,7 @@
 kids.ansi
 =========================
 
-.. image:: https://pypip.in/v/kids.ansi/badge.png
+.. image:: https://img.shields.io/pypi/v/kids.ansi.svg
     :target: https://pypi.python.org/pypi/kids.ansi
 
 .. image:: https://secure.travis-ci.org/0k/kids.ansi.png?branch=master
